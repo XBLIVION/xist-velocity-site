@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIST VELOCITY — Google Business Profile Optimization</title>
+    <title>XIST VELOCITY - Google Business Profile Optimization</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ═══════════════════════════════════════════
-           XIST AESTHETIC — 90s TECH-NOIR / ANTI-AI-SLOP
-           ═══════════════════════════════════════════ */
-        
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #111118;
@@ -27,11 +23,7 @@
             --font-body: 'Inter', system-ui, sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-body);
@@ -41,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* CRT Scanline Overlay */
         body::before {
             content: "";
             position: fixed;
@@ -58,7 +49,6 @@
             opacity: 0.4;
         }
 
-        /* Noise Texture */
         body::after {
             content: "";
             position: fixed;
@@ -77,32 +67,15 @@
             z-index: 1;
         }
 
-        /* TYPOGRAPHY */
         h1, h2, h3, .mono {
             font-family: var(--font-mono);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        h1 {
-            font-size: 2.8rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin: 3rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: var(--border);
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1rem;
-            margin: 2rem 0 0.5rem;
-            color: var(--accent-green);
-        }
+        h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 1rem; }
+        h2 { font-size: 1.5rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: var(--border); display: inline-block; }
+        h3 { font-size: 1rem; margin: 2rem 0 0.5rem; color: var(--accent-green); }
 
         .accent-green { color: var(--accent-green); }
         .accent-pink { color: var(--accent-pink); }
@@ -110,7 +83,6 @@
         .dim { color: var(--text-dim); }
         .muted { color: var(--text-muted); }
 
-        /* HEADER */
         header {
             text-align: center;
             padding: 4rem 1rem 2rem;
@@ -129,26 +101,11 @@
             letter-spacing: 2px;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .subtitle { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; }
 
-        /* PANELS */
-        .panel {
-            background: var(--bg-panel);
-            border: var(--border);
-            padding: 2rem;
-            margin: 1.5rem 0;
-        }
+        .panel { background: var(--bg-panel); border: var(--border); padding: 2rem; margin: 1.5rem 0; }
+        .panel-bright { border: var(--border-bright); }
 
-        .panel-bright {
-            border: var(--border-bright);
-        }
-
-        /* STATS */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -177,209 +134,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        /* PRICING */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .pricing-card {
-            background: var(--bg-panel);
-            border: var(--border);
-            padding: 2rem;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border: 1px solid var(--accent-pink);
-        }
-
-        .featured-tag {
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            background: var(--accent-pink);
-            color: var(--bg-primary);
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            padding: 0.3rem 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .price {
-            font-family: var(--font-mono);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin: 0.5rem 0;
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .pricing-card ul li {
-            padding: 0.4rem 0;
-            border-bottom: 1px solid #222;
-            font-size: 0.9rem;
-        }
-
-        .pricing-card ul li::before {
-            content: "› ";
-            color: var(--accent-green);
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            padding: 0.8rem 2rem;
-            background: transparent;
-            border: var(--border-bright);
-            color: var(--accent-green);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn:hover {
-            background: var(--accent-green);
-            color: var(--bg-primary);
-        }
-
-        .btn-pink {
-            border-color: var(--accent-pink);
-            color: var(--accent-pink);
-        }
-
-        .btn-pink:hover {
-            background: var(--accent-pink);
-            color: var(--bg-primary);
-        }
-
-        /* FORM */
-        .form-group {
-            margin: 1rem 0;
-        }
-
-        .form-group label {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-            color: var(--text-dim);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--bg-secondary);
-            border: var(--border);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-green);
-        }
-
-        /* NOT FOR SECTION */
-        .not-for {
-            background: var(--bg-secondary);
-            border: 1px solid #444;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .not-for h3 {
-            color: var(--accent-pink);
-        }
-
-        .not-for ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .not-for ul li::before {
-            content: "✗ ";
-            color: var(--accent-pink);
-        }
-
-        .not-for ul li {
-            padding: 0.5rem 0;
-            color: var(--text-dim);
-        }
-
-        /* PERKS */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .perk {
-            border: var(--border);
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .perk-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* TERMINAL FOOTER */
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            border-top: var(--border);
-            margin-top: 3rem;
-        }
-
-        .terminal-line {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-dim);
-        }
-
-        .terminal-line::before {
-            content: "> ";
-            color: var(--accent-green);
-        }
-
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* UTILITY */
-        .text-center { text-align: center; }
-        .mb-2 { margin-bottom: 2rem; }
-        .mt-2 { margin-top: 2rem; }
-        .small { font-size: 0.85rem; }
 
         /* DELIVERABLES MATRIX */
         .matrix {
@@ -466,9 +220,7 @@
             border-right: 1px solid var(--accent-pink);
         }
 
-        .matrix-row.matrix-highlight {
-            background: rgba(0, 255, 136, 0.03);
-        }
+        .matrix-row.matrix-highlight { background: rgba(0, 255, 136, 0.03); }
 
         .matrix-footer {
             background: var(--bg-secondary);
@@ -489,7 +241,46 @@
             font-size: 0.85rem;
         }
 
-        /* PRICING META TAGS */
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: var(--bg-panel);
+            border: var(--border);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .pricing-card.featured { border: 1px solid var(--accent-pink); }
+
+        .featured-tag {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            background: var(--accent-pink);
+            color: var(--bg-primary);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.3rem 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin: 0.5rem 0;
+        }
+
+        .price-note { font-size: 0.85rem; color: var(--text-dim); }
+
         .pricing-meta {
             display: flex;
             flex-wrap: wrap;
@@ -508,10 +299,112 @@
             letter-spacing: 1px;
         }
 
-        .meta-tag.pink {
-            border-color: var(--accent-pink);
-            color: var(--accent-pink);
+        .meta-tag.pink { border-color: var(--accent-pink); color: var(--accent-pink); }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
         }
+
+        .pricing-card ul li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #222;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card ul li::before {
+            content: "> ";
+            color: var(--accent-green);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: var(--border-bright);
+            color: var(--accent-green);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover { background: var(--accent-green); color: var(--bg-primary); }
+
+        .btn-pink { border-color: var(--accent-pink); color: var(--accent-pink); }
+        .btn-pink:hover { background: var(--accent-pink); color: var(--bg-primary); }
+
+        /* FORM */
+        .form-group { margin: 1rem 0; }
+        .form-group label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+            color: var(--text-dim);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg-secondary);
+            border: var(--border);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--accent-green); }
+
+        /* NOT FOR */
+        .not-for {
+            background: var(--bg-secondary);
+            border: 1px solid #444;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .not-for h3 { color: var(--accent-pink); }
+        .not-for ul { list-style: none; margin-top: 1rem; }
+        .not-for ul li::before { content: "✗ "; color: var(--accent-pink); }
+        .not-for ul li { padding: 0.5rem 0; color: var(--text-dim); }
+
+        /* PERKS */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .perk { border: var(--border); padding: 1.5rem; text-align: center; }
+        .perk-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: var(--border);
+            margin-top: 3rem;
+        }
+        .terminal-line {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+        .terminal-line::before { content: "> "; color: var(--accent-green); }
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* UTILITY */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 2rem; }
+        .small { font-size: 0.85rem; }
 
         /* MOBILE */
         @media (max-width: 600px) {
@@ -527,21 +420,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
+        
         <header>
             <div class="badge">⚡ ACTIVE SERVICE</div>
             <h1><span class="accent-green">XIST</span> <span class="dim">VELOCITY</span></h1>
             <p class="subtitle">Your competitors are eating your search traffic.<br>We fix that in 7 days.</p>
         </header>
 
-        <!-- THE PROBLEM -->
         <section>
             <h2><span class="accent-green">01</span> THE PROBLEM</h2>
             <div class="panel">
                 <p>46% of Google searches are <strong class="accent-green">local intent</strong>. "Near me" queries have grown <strong class="accent-green">500%</strong> since 2020. Yet most local businesses have incomplete, outdated, or unoptimized Google Business Profiles.</p>
                 <p class="mt-2">The result? Your competitors show up. You don't.</p>
             </div>
-
             <div class="panel panel-bright">
                 <h3 class="accent-cyan">⚠ THE HIDDEN RISK: AI SEARCH IS COMING FOR YOUR TRAFFIC</h3>
                 <p>ChatGPT, Perplexity, and Siri already answer "best [service] near me" <em>without sending users to Google</em>. Businesses that aren't AI-visible will disappear from these answers entirely.</p>
@@ -549,7 +440,6 @@
             </div>
         </section>
 
-        <!-- STATS -->
         <section>
             <h2><span class="accent-green">02</span> THE MATH</h2>
             <div class="stats">
@@ -569,7 +459,6 @@
             <p class="text-center small dim">Source: Google / BrightLocal 2024</p>
         </section>
 
-        <!-- DELIVERABLES AT A GLANCE -->
         <section>
             <h2><span class="accent-green">03</span> WHAT YOU GET — AT A GLANCE</h2>
             <p class="dim mb-2">10 deliverables. 3 tiers. Pick what fits. No hidden fees.</p>
@@ -583,13 +472,13 @@
                 </div>
                 
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">🔍 GBP Health Check + Audit</div>
+                    <div class="matrix-cell matrix-feature">🔍 GBP Audit</div>
                     <div class="matrix-cell matrix-check">✓</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">📝 Keyword-Rich Description</div>
+                    <div class="matrix-cell matrix-feature">📝 Keyword Description</div>
                     <div class="matrix-cell matrix-check">✓</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
                     <div class="matrix-cell matrix-check">✓</div>
@@ -601,67 +490,67 @@
                     <div class="matrix-cell matrix-check">20</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">❓ Q&A Seeding</div>
+                    <div class="matrix-cell matrix-feature">❓ Q&amp;A Seeding</div>
                     <div class="matrix-cell matrix-check">5 Qs</div>
                     <div class="matrix-cell matrix-check tier-featured">10 Qs</div>
                     <div class="matrix-cell matrix-check">15 Qs</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">⭐ Review Generation System</div>
+                    <div class="matrix-cell matrix-feature">⭐ Review System</div>
                     <div class="matrix-cell matrix-check">✓</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">📅 30-Day Posts Calendar</div>
+                    <div class="matrix-cell matrix-feature">📅 Posts Calendar</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">🎯 Competitor Gap Analysis</div>
+                    <div class="matrix-cell matrix-feature">🎯 Competitor Analysis</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-check tier-featured">Basic</div>
-                    <div class="matrix-cell matrix-check">Deep-dive</div>
+                    <div class="matrix-cell matrix-check">Deep</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">🛡️ AI-Visibility Insurance</div>
+                    <div class="matrix-cell matrix-feature">🛡️ AI-Insurance</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
-                    <div class="matrix-cell matrix-check">Advanced</div>
+                    <div class="matrix-cell matrix-check">Adv</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">📊 Analytics Dashboard</div>
-                    <div class="matrix-cell matrix-check">30-day</div>
-                    <div class="matrix-cell matrix-check tier-featured">60-day</div>
-                    <div class="matrix-cell matrix-check">90-day</div>
+                    <div class="matrix-cell matrix-feature">📊 Dashboard</div>
+                    <div class="matrix-cell matrix-check">30d</div>
+                    <div class="matrix-cell matrix-check tier-featured">60d</div>
+                    <div class="matrix-cell matrix-check">90d</div>
                 </div>
                 <div class="matrix-row">
-                    <div class="matrix-cell matrix-feature">🎓 Client Education Session</div>
-                    <div class="matrix-cell matrix-check">30 min</div>
-                    <div class="matrix-cell matrix-check tier-featured">45 min</div>
-                    <div class="matrix-cell matrix-check">60 min</div>
+                    <div class="matrix-cell matrix-feature">🎓 Education</div>
+                    <div class="matrix-cell matrix-check">30m</div>
+                    <div class="matrix-cell matrix-check tier-featured">45m</div>
+                    <div class="matrix-cell matrix-check">60m</div>
                 </div>
                 <div class="matrix-row matrix-highlight">
-                    <div class="matrix-cell matrix-feature">🎥 Video Intro for GBP</div>
+                    <div class="matrix-cell matrix-feature">🎥 Video Intro</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-x tier-featured">—</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row matrix-highlight">
-                    <div class="matrix-cell matrix-feature">🌐 Website GBP Integration</div>
+                    <div class="matrix-cell matrix-feature">🌐 Website Integration</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-x tier-featured">—</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row matrix-highlight">
-                    <div class="matrix-cell matrix-feature">🔄 Quarterly Re-optimization</div>
+                    <div class="matrix-cell matrix-feature">🔄 Re-optimization</div>
                     <div class="matrix-cell matrix-x">—</div>
                     <div class="matrix-cell matrix-x tier-featured">—</div>
                     <div class="matrix-cell matrix-check">✓</div>
                 </div>
                 <div class="matrix-row matrix-highlight">
-                    <div class="matrix-cell matrix-feature">☕ Spellbinder Coffee Sample</div>
+                    <div class="matrix-cell matrix-feature">☕ Coffee Sample</div>
                     <div class="matrix-cell matrix-check">✓</div>
                     <div class="matrix-cell matrix-check tier-featured">✓</div>
                     <div class="matrix-cell matrix-check">✓</div>
@@ -677,7 +566,6 @@
             </div>
         </section>
 
-        <!-- PRICING CARDS -->
         <section>
             <h2><span class="accent-green">04</span> CHOOSE YOUR TIER</h2>
             <p class="dim mb-2">Flat rate. No hidden fees. No monthly lock-in unless you want it.</p>
@@ -729,7 +617,6 @@
             </div>
         </section>
 
-        <!-- WHO THIS IS NOT FOR -->
         <section>
             <h2><span class="accent-pink">✗</span> NOT FOR</h2>
             <div class="not-for">
@@ -743,7 +630,6 @@
             </div>
         </section>
 
-        <!-- XIST ECOSYSTEM PERKS -->
         <section>
             <h2><span class="accent-green">05</span> XIST ECOSYSTEM PERKS</h2>
             <p class="dim mb-2">Every Velocity client receives:</p>
@@ -766,7 +652,6 @@
             </div>
         </section>
 
-        <!-- GUARANTEE -->
         <section>
             <h2><span class="accent-green">06</span> GUARANTEE</h2>
             <div class="panel panel-bright text-center">
@@ -775,13 +660,12 @@
             </div>
         </section>
 
-        <!-- CONTACT FORM -->
         <section id="contact">
             <h2><span class="accent-green">07</span> START NOW</h2>
             <p class="dim mb-2">15-minute diagnostic. We'll audit your GBP live and tell you exactly what's broken. No pitch.</p>
             
             <div class="panel">
-                <form action="mailto:hello@xistdesign.co" method="post" enctype="text/plain">
+                <form action="mailto:admin@xistdesign.co" method="post" enctype="text/plain">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" placeholder="Your name" required>
@@ -804,11 +688,10 @@
                     </div>
                     <button type="submit" class="btn" style="width: 100%">Send Diagnostic Request</button>
                 </form>
-                <p class="text-center small dim mt-2">Or email directly: <a href="mailto:hello@xistdesign.co" class="accent-green">hello@xistdesign.co</a></p>
+                <p class="text-center small dim mt-2">Or email directly: <a href="mailto:admin@xistdesign.co" class="accent-green">admin@xistdesign.co</a></p>
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p class="terminal-line">Xist Design Co. — Erie, PA<span class="blink">_</span></p>
             <p class="terminal-line dim">Built with 💀⚡ — Not generated by AI slop</p>
