@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Velocity Starter Package — Xist Design Co.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #f8f9fa;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .badge {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        .problem {
+            background: #fff;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .problem h2 { color: #e94560; margin-bottom: 1rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-box {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e94560;
+        }
+        .deliverables {
+            background: #fff;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .deliverables h2 { margin-bottom: 1.5rem; color: #1a1a2e; }
+        .phase {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #e94560;
+        }
+        .phase h3 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .phase ul { margin-left: 1.5rem; }
+        .phase li { margin: 0.4rem 0; }
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .price-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+        .price-card.featured {
+            border: 2px solid #e94560;
+            transform: scale(1.02);
+        }
+        .price-card .tier { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; }
+        .price-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e94560;
+            margin: 1rem 0;
+        }
+        .price-card .price span { font-size: 1rem; color: #666; }
+        .price-card ul {
+            text-align: left;
+            margin: 1rem 0;
+            list-style: none;
+        }
+        .price-card ul li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .price-card ul li::before {
+            content: "✓";
+            color: #0f9b6e;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .cta {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            margin-top: 2rem;
+        }
+        .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta p { max-width: 500px; margin: 0 auto 1.5rem; opacity: 0.9; }
+        .cta a {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .cta a:hover { transform: scale(1.05); }
+        .guarantee {
+            text-align: center;
+            padding: 2rem;
+            background: #0f9b6e;
+            color: #fff;
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+        .guarantee h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .highlight { color: #e94560; font-weight: 600; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .price-card.featured { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge">🚀 NEW SERVICE</div>
+    <h1>Google Velocity Starter Package</h1>
+    <p>Stop losing local customers to competitors. Get found, get clicks, get calls — in 7 days.</p>
+</header>
+
+<div class="container">
+
+    <section class="problem">
+        <h2>The Problem</h2>
+        <p><strong>91% of consumers</strong> search online for local businesses. Yet <strong>56% of local businesses</strong> haven't even claimed their Google profile. Of those that have, most are incomplete, unoptimized, or actively hurting their visibility.</p>
+        <br>
+        <p><strong>What this costs you every month:</strong></p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>Walk-in traffic going to competitors</li>
+            <li>"Near me" searches showing your competitors first</li>
+            <li>AI assistants (Siri, Alexa, ChatGPT) giving wrong info about you</li>
+            <li>Missed calls from outdated phone numbers</li>
+            <li>No reviews = no trust = no sales</li>
+        </ul>
+    </section>
+
+    <div class="stats">
+        <div class="stat-box">
+            <div class="number">91%</div>
+            <p>of consumers search online before visiting</p>
+        </div>
+        <div class="stat-box">
+            <div class="number">56%</div>
+            <p>of businesses haven't claimed their profile</p>
+        </div>
+        <div class="stat-box">
+            <div class="number">5–7</div>
+            <p>days to fix everything</p>
+        </div>
+    </div>
+
+    <section class="deliverables">
+        <h2>What You Get — 10 Deliverables</h2>
+        
+        <div class="phase">
+            <h3>🔍 Phase 1: Audit & Discovery (Days 1–2)</h3>
+            <ul>
+                <li><strong>GBP Health Check</strong> — Complete audit with red/yellow/green scoring + competitor analysis</li>
+                <li><strong>Keyword & Search Intent Map</strong> — Top 20 searches your customers actually type, including voice search</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <h3>⚙️ Phase 2: Optimization & Build (Days 3–5)</h3>
+            <ul>
+                <li><strong>Full GBP Optimization</strong> — NAP accuracy, categories, description, hours, services, Q&A pre-populated</li>
+                <li><strong>Visual Asset Package</strong> — Logo, cover photo, 10–15 professional photos, optional video intro</li>
+                <li><strong>Review Generation System</strong> — Email/SMS templates, QR codes for in-store, response playbook</li>
+            </ul>
+        </div>
+
+        <div class="phase">
+            <h3>🚀 Phase 3: Activation & Handoff (Days 6–7)</h3>
+            <ul>
+                <li><strong>30-Day Google Posts Calendar</strong> — Pre-written posts + image templates + publishing schedule</li>
+                <li><strong>Citation Audit & Cleanup</strong> — Fix NAP inconsistencies across 20+ directories</li>
+                <li><strong>AI-Search Insurance</strong> — Structured data markup, FAQ schema, ChatGPT/Siri visibility check</li>
+                <li><strong>Analytics Dashboard</strong> — Baseline capture + 90-day tracking sheet</li>
+                <li><strong>Client Education Session</strong> — 30-min call: how to maintain everything yourself</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="guarantee">
+        <h3>✅ 30-Day Satisfaction Guarantee</h3>
+        <p>If you don't see measurable improvement in views, clicks, or calls within 30 days — we'll re-optimize for free or refund 100%.</p>
+    </div>
+
+    <section class="deliverables">
+        <h2 style="text-align: center;">Pricing</h2>
+        <div class="pricing">
+            <div class="price-card">
+                <div class="tier">Essential</div>
+                <div class="price">$297</div>
+                <p style="color: #666; margin-bottom: 1rem;">Best for solo practitioners, home-based</p>
+                <ul>
+                    <li>GBP setup + optimization</li>
+                    <li>5 professional photos</li>
+                    <li>Review templates + QR</li>
+                    <li>Basic audit report</li>
+                    <li>Email support</li>
+                </ul>
+            </div>
+            <div class="price-card featured">
+                <div class="badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">MOST POPULAR</div>
+                <div class="tier">Standard</div>
+                <div class="price">$397</div>
+                <p style="color: #666; margin-bottom: 1rem;">Best for small retail, restaurants, services</p>
+                <ul>
+                    <li>Everything in Essential</li>
+                    <li>15 photos + branded cover</li>
+                    <li>30-day posts calendar</li>
+                    <li>Citation cleanup (20+ dirs)</li>
+                    <li>AI-Search scorecard</li>
+                    <li>30-min education call</li>
+                </ul>
+            </div>
+            <div class="price-card">
+                <div class="tier">Premium</div>
+                <div class="price">$497</div>
+                <p style="color: #666; margin-bottom: 1rem;">Best for multi-location, competitive markets</p>
+                <ul>
+                    <li>Everything in Standard</li>
+                    <li>Video intro (60 sec)</li>
+                    <li>Advanced schema markup</li>
+                    <li>Competitor deep-dive</li>
+                    <li>60-min strategy call</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="deliverables">
+        <h2>Monthly Management (Optional)</h2>
+        <p style="margin-bottom: 1rem;">Don't want to maintain it yourself? We handle everything:</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                <strong>$97/mo</strong><br>
+                Posts, reviews, updates, monthly reporting
+            </div>
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                <strong>$197/mo</strong><br>
+                + Ongoing SEO + content creation
+            </div>
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                <strong>$297/mo</strong><br>
+                + Google Ads management + tracking
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<section class="cta">
+    <h2>Ready to Get Found?</h2>
+    <p>Book a free 15-minute discovery call. We'll audit your current Google profile live on the call — no obligation.</p>
+    <a href="#contact">Book Free Discovery Call</a>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Or text/call: [your phone] · Email: [your email]</p>
+</section>
+
+<footer id="contact">
+    <p><strong>Xist Design Co.</strong> — Digital Longevity for Local Businesses</p>
+    <p style="margin-top: 0.5rem;">Built with 💀⚡ by Xist Design Co. · Erie, PA</p>
+    <p style="margin-top: 0.5rem; opacity: 0.6;">© 2026 Xist Design Co. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
