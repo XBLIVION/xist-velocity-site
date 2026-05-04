@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIST VELOCITY — Deliverables Breakdown</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-panel: #111118;
+            --green: #00ff88;
+            --pink: #ff00aa;
+            --cyan: #00d9ff;
+            --text: #e0e0e0;
+            --dim: #666;
+            --muted: #444;
+            --border: 1px solid #333;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 1rem;
+        }
+
+        .page {
+            max-width: 700px;
+            margin: 0 auto;
+            border: var(--border);
+            background: var(--bg-panel);
+        }
+
+        .header {
+            text-align: center;
+            padding: 1.5rem;
+            border-bottom: var(--border);
+            background: var(--bg);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .logo .green { color: var(--green); }
+        .logo .dim { color: var(--dim); }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--dim);
+            margin-top: 0.3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--green);
+            color: var(--green);
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dim);
+            padding: 1rem 1.5rem;
+            border-bottom: var(--border);
+        }
+
+        .matrix {
+            width: 100%;
+        }
+
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #222;
+        }
+
+        .matrix-row:last-child { border-bottom: none; }
+
+        .matrix-header {
+            background: var(--bg);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+        }
+
+        .matrix-cell {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .matrix-cell.feature {
+            justify-content: flex-start;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .matrix-cell.check {
+            color: var(--green);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            border-left: var(--border);
+        }
+
+        .matrix-cell.x {
+            color: var(--muted);
+            font-family: var(--font-mono);
+            border-left: var(--border);
+        }
+
+        .matrix-cell.tier-feat {
+            background: rgba(255, 0, 170, 0.05);
+            border-left: 1px solid var(--pink);
+            border-right: 1px solid var(--pink);
+        }
+
+        .highlight { background: rgba(0, 255, 136, 0.03); }
+
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: var(--border);
+        }
+
+        .tier {
+            padding: 1rem;
+            text-align: center;
+            border-right: var(--border);
+        }
+
+        .tier:last-child { border-right: none; }
+
+        .tier-name {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dim);
+        }
+
+        .tier-price {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.3rem 0;
+        }
+
+        .tier-price.green { color: var(--green); }
+        .tier-price.pink { color: var(--pink); }
+
+        .tier-desc {
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: var(--border);
+            background: var(--bg);
+        }
+
+        .footer p {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--dim);
+        }
+
+        .footer .green { color: var(--green); }
+
+        @media (max-width: 500px) {
+            .matrix-row { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+            .matrix-cell { padding: 0.4rem 0.3rem; font-size: 0.65rem; }
+            .matrix-cell.feature { font-size: 0.6rem; }
+            .tier-price { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="logo"><span class="green">XIST</span> <span class="dim">VELOCITY</span></div>
+            <p class="tagline">Google Business Profile Optimization</p>
+            <div class="badge">10 DELIVERABLES · 7 DAYS · FLAT RATE</div>
+        </div>
+
+        <h2>WHAT YOU GET</h2>
+        <div class="matrix">
+            <div class="matrix-row matrix-header">
+                <div class="matrix-cell feature">Deliverable</div>
+                <div class="matrix-cell">Essential</div>
+                <div class="matrix-cell">Standard</div>
+                <div class="matrix-cell">Premium</div>
+            </div>
+
+            <div class="matrix-row">
+                <div class="matrix-cell feature">🔍 GBP Audit</div>
+                <div class="matrix-cell check">✓</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">📝 Keyword Description</div>
+                <div class="matrix-cell check">✓</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">📸 Custom Photos</div>
+                <div class="matrix-cell check">10</div>
+                <div class="matrix-cell check tier-feat">15</div>
+                <div class="matrix-cell check">20</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">❓ Q&A Seeding</div>
+                <div class="matrix-cell check">5 Qs</div>
+                <div class="matrix-cell check tier-feat">10 Qs</div>
+                <div class="matrix-cell check">15 Qs</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">⭐ Review System</div>
+                <div class="matrix-cell check">✓</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">📅 Posts Calendar</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">🎯 Competitor Analysis</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell check tier-feat">Basic</div>
+                <div class="matrix-cell check">Deep</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">🛡️ AI-Insurance</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">Adv</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">📊 Dashboard</div>
+                <div class="matrix-cell check">30d</div>
+                <div class="matrix-cell check tier-feat">60d</div>
+                <div class="matrix-cell check">90d</div>
+            </div>
+            <div class="matrix-row">
+                <div class="matrix-cell feature">🎓 Education</div>
+                <div class="matrix-cell check">30m</div>
+                <div class="matrix-cell check tier-feat">45m</div>
+                <div class="matrix-cell check">60m</div>
+            </div>
+            <div class="matrix-row highlight">
+                <div class="matrix-cell feature">🎥 Video Intro</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell x tier-feat">—</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row highlight">
+                <div class="matrix-cell feature">🌐 Website Integration</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell x tier-feat">—</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row highlight">
+                <div class="matrix-cell feature">🔄 Re-optimization</div>
+                <div class="matrix-cell x">—</div>
+                <div class="matrix-cell x tier-feat">—</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+            <div class="matrix-row highlight">
+                <div class="matrix-cell feature">☕ Coffee Sample</div>
+                <div class="matrix-cell check">✓</div>
+                <div class="matrix-cell check tier-feat">✓</div>
+                <div class="matrix-cell check">✓</div>
+            </div>
+        </div>
+
+        <div class="tiers">
+            <div class="tier">
+                <div class="tier-name">Essential</div>
+                <div class="tier-price green">$297</div>
+                <div class="tier-desc">6 core deliverables · 30-day report</div>
+            </div>
+            <div class="tier">
+                <div class="tier-name">Standard</div>
+                <div class="tier-price pink">$497</div>
+                <div class="tier-desc">9 deliverables · 60-day support · ★ Most Popular</div>
+            </div>
+            <div class="tier">
+                <div class="tier-name">Premium</div>
+                <div class="tier-price green">$697</div>
+                <div class="tier-desc">12 deliverables · 90-day support · Video intro</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><span class="green">›</span> Xist Design Co. — Erie, PA</p>
+            <p style="margin-top:0.3rem;">30 days. Measurable results or we re-optimize free.</p>
+        </div>
+    </div>
+</body>
+</html>
