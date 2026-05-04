@@ -3,316 +3,817 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Velocity Starter Package — Xist Design Co.</title>
+    <title>XIST VELOCITY — Google Business Profile Optimization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1a1a2e;
-            background: #f8f9fa;
+        /* ═══════════════════════════════════════════
+           XIST AESTHETIC — 90s TECH-NOIR / ANTI-AI-SLOP
+           ═══════════════════════════════════════════ */
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-panel: #0f0f16;
+            --accent-green: #00ff88;
+            --accent-pink: #ff00aa;
+            --accent-cyan: #00d9ff;
+            --text-primary: #e0e0e0;
+            --text-dim: #666;
+            --text-muted: #444;
+            --border: 1px solid #333;
+            --border-bright: 1px solid #00ff88;
+            --font-mono: 'Space Mono', 'Courier New', monospace;
+            --font-body: 'Inter', system-ui, sans-serif;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* CRT Scanline Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        /* Noise Texture */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, .mono {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 3rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: var(--border);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1rem;
+            margin: 2rem 0 0.5rem;
+            color: var(--accent-green);
+        }
+
+        .accent-green { color: var(--accent-green); }
+        .accent-pink { color: var(--accent-pink); }
+        .accent-cyan { color: var(--accent-cyan); }
+        .dim { color: var(--text-dim); }
+        .muted { color: var(--text-muted); }
+
+        /* HEADER */
         header {
             text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
+            padding: 4rem 1rem 2rem;
+            border-bottom: var(--border);
+            margin-bottom: 2rem;
         }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
         .badge {
             display: inline-block;
-            background: #e94560;
-            color: #fff;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 1rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border: var(--border-bright);
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
         }
-        .problem {
-            background: #fff;
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* PANELS */
+        .panel {
+            background: var(--bg-panel);
+            border: var(--border);
             padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            margin: 1.5rem 0;
         }
-        .problem h2 { color: #e94560; margin-bottom: 1rem; }
+
+        .panel-bright {
+            border: var(--border-bright);
+        }
+
+        /* STATS */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
             margin: 2rem 0;
         }
+
         .stat-box {
-            background: #fff;
+            background: var(--bg-secondary);
+            border: var(--border);
             padding: 1.5rem;
-            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
-        .stat-box .number {
+
+        .stat-number {
+            font-family: var(--font-mono);
             font-size: 2.5rem;
             font-weight: 700;
-            color: #e94560;
+            color: var(--accent-green);
+            display: block;
         }
-        .deliverables {
-            background: #fff;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .deliverables h2 { margin-bottom: 1.5rem; color: #1a1a2e; }
-        .phase {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #e94560;
-        }
-        .phase h3 { color: #1a1a2e; margin-bottom: 0.5rem; }
-        .phase ul { margin-left: 1.5rem; }
-        .phase li { margin: 0.4rem 0; }
-        .pricing {
+
+        /* PRICING */
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
             margin: 2rem 0;
         }
-        .price-card {
-            background: #fff;
+
+        .pricing-card {
+            background: var(--bg-panel);
+            border: var(--border);
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            text-align: center;
             position: relative;
         }
-        .price-card.featured {
-            border: 2px solid #e94560;
-            transform: scale(1.02);
+
+        .pricing-card.featured {
+            border: 1px solid var(--accent-pink);
         }
-        .price-card .tier { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; }
-        .price-card .price {
+
+        .featured-tag {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            background: var(--accent-pink);
+            color: var(--bg-primary);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.3rem 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-family: var(--font-mono);
             font-size: 2.5rem;
             font-weight: 700;
-            color: #e94560;
-            margin: 1rem 0;
+            color: var(--accent-green);
+            margin: 0.5rem 0;
         }
-        .price-card .price span { font-size: 1rem; color: #666; }
-        .price-card ul {
-            text-align: left;
-            margin: 1rem 0;
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .pricing-card ul {
             list-style: none;
+            margin: 1.5rem 0;
         }
-        .price-card ul li {
-            padding: 0.3rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        .price-card ul li::before {
-            content: "✓";
-            color: #0f9b6e;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        .cta {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            margin-top: 2rem;
-        }
-        .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .cta p { max-width: 500px; margin: 0 auto 1.5rem; opacity: 0.9; }
-        .cta a {
-            display: inline-block;
-            background: #e94560;
-            color: #fff;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s;
-        }
-        .cta a:hover { transform: scale(1.05); }
-        .guarantee {
-            text-align: center;
-            padding: 2rem;
-            background: #0f9b6e;
-            color: #fff;
-            margin: 2rem 0;
-            border-radius: 12px;
-        }
-        .guarantee h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
+
+        .pricing-card ul li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #222;
             font-size: 0.9rem;
         }
-        .highlight { color: #e94560; font-weight: 600; }
+
+        .pricing-card ul li::before {
+            content: "› ";
+            color: var(--accent-green);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: var(--border-bright);
+            color: var(--accent-green);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        .btn-pink {
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
+        .btn-pink:hover {
+            background: var(--accent-pink);
+            color: var(--bg-primary);
+        }
+
+        /* FORM */
+        .form-group {
+            margin: 1rem 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+            color: var(--text-dim);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg-secondary);
+            border: var(--border);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        /* NOT FOR SECTION */
+        .not-for {
+            background: var(--bg-secondary);
+            border: 1px solid #444;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .not-for h3 {
+            color: var(--accent-pink);
+        }
+
+        .not-for ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .not-for ul li::before {
+            content: "✗ ";
+            color: var(--accent-pink);
+        }
+
+        .not-for ul li {
+            padding: 0.5rem 0;
+            color: var(--text-dim);
+        }
+
+        /* PERKS */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .perk {
+            border: var(--border);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .perk-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* TERMINAL FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: var(--border);
+            margin-top: 3rem;
+        }
+
+        .terminal-line {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .terminal-line::before {
+            content: "> ";
+            color: var(--accent-green);
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* UTILITY */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 2rem; }
+        .small { font-size: 0.85rem; }
+
+        /* DELIVERABLES MATRIX */
+        .matrix {
+            border: var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .matrix-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            background: var(--bg-secondary);
+            border-bottom: var(--border);
+        }
+
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #222;
+        }
+
+        .matrix-row:last-child { border-bottom: none; }
+
+        .matrix-cell {
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .matrix-feature {
+            justify-content: flex-start;
+            text-align: left;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        .matrix-feature-header {
+            justify-content: flex-start;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .matrix-tier-header {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            border-left: var(--border);
+        }
+
+        .matrix-tier-header .small {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .matrix-check {
+            color: var(--accent-green);
+            font-weight: 700;
+            border-left: var(--border);
+            font-family: var(--font-mono);
+        }
+
+        .matrix-x {
+            color: #333;
+            border-left: var(--border);
+            font-family: var(--font-mono);
+        }
+
+        .tier-featured {
+            background: rgba(255, 0, 170, 0.05);
+            border-left: 1px solid var(--accent-pink);
+            border-right: 1px solid var(--accent-pink);
+        }
+
+        .matrix-row.matrix-highlight {
+            background: rgba(0, 255, 136, 0.03);
+        }
+
+        .matrix-footer {
+            background: var(--bg-secondary);
+            border: var(--border);
+            border-top: none;
+            padding: 1rem 1.5rem;
+        }
+
+        .matrix-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .matrix-summary div {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        /* PRICING META TAGS */
+        .pricing-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .meta-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border: var(--border);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-tag.pink {
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
+        /* MOBILE */
         @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .price-card.featured { transform: none; }
+            h1 { font-size: 1.8rem; }
+            .container { padding: 1rem; }
+            .stats, .pricing-grid { grid-template-columns: 1fr; }
+            .matrix-header, .matrix-row { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+            .matrix-cell { padding: 0.5rem 0.4rem; font-size: 0.75rem; }
+            .matrix-feature { font-size: 0.7rem; }
+            .matrix-summary { grid-template-columns: 1fr; gap: 0.5rem; }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="badge">⚡ ACTIVE SERVICE</div>
+            <h1><span class="accent-green">XIST</span> <span class="dim">VELOCITY</span></h1>
+            <p class="subtitle">Your competitors are eating your search traffic.<br>We fix that in 7 days.</p>
+        </header>
 
-<header>
-    <div class="badge">🚀 NEW SERVICE</div>
-    <h1>Google Velocity Starter Package</h1>
-    <p>Stop losing local customers to competitors. Get found, get clicks, get calls — in 7 days.</p>
-</header>
+        <!-- THE PROBLEM -->
+        <section>
+            <h2><span class="accent-green">01</span> THE PROBLEM</h2>
+            <div class="panel">
+                <p>46% of Google searches are <strong class="accent-green">local intent</strong>. "Near me" queries have grown <strong class="accent-green">500%</strong> since 2020. Yet most local businesses have incomplete, outdated, or unoptimized Google Business Profiles.</p>
+                <p class="mt-2">The result? Your competitors show up. You don't.</p>
+            </div>
 
-<div class="container">
+            <div class="panel panel-bright">
+                <h3 class="accent-cyan">⚠ THE HIDDEN RISK: AI SEARCH IS COMING FOR YOUR TRAFFIC</h3>
+                <p>ChatGPT, Perplexity, and Siri already answer "best [service] near me" <em>without sending users to Google</em>. Businesses that aren't AI-visible will disappear from these answers entirely.</p>
+                <p class="mt-2"><strong class="accent-green">AI-Visibility Insurance</strong> — included in every package: structured data, FAQ schema, and voice search optimization. You're findable even when the search box goes away.</p>
+            </div>
+        </section>
 
-    <section class="problem">
-        <h2>The Problem</h2>
-        <p><strong>91% of consumers</strong> search online for local businesses. Yet <strong>56% of local businesses</strong> haven't even claimed their Google profile. Of those that have, most are incomplete, unoptimized, or actively hurting their visibility.</p>
-        <br>
-        <p><strong>What this costs you every month:</strong></p>
-        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-            <li>Walk-in traffic going to competitors</li>
-            <li>"Near me" searches showing your competitors first</li>
-            <li>AI assistants (Siri, Alexa, ChatGPT) giving wrong info about you</li>
-            <li>Missed calls from outdated phone numbers</li>
-            <li>No reviews = no trust = no sales</li>
-        </ul>
-    </section>
+        <!-- STATS -->
+        <section>
+            <h2><span class="accent-green">02</span> THE MATH</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">91%</span>
+                    <span class="stat-label">of consumers read reviews before visiting</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">56%</span>
+                    <span class="stat-label">of local businesses have incomplete GBPs</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">days to full optimization</span>
+                </div>
+            </div>
+            <p class="text-center small dim">Source: Google / BrightLocal 2024</p>
+        </section>
 
-    <div class="stats">
-        <div class="stat-box">
-            <div class="number">91%</div>
-            <p>of consumers search online before visiting</p>
-        </div>
-        <div class="stat-box">
-            <div class="number">56%</div>
-            <p>of businesses haven't claimed their profile</p>
-        </div>
-        <div class="stat-box">
-            <div class="number">5–7</div>
-            <p>days to fix everything</p>
-        </div>
+        <!-- DELIVERABLES AT A GLANCE -->
+        <section>
+            <h2><span class="accent-green">03</span> WHAT YOU GET — AT A GLANCE</h2>
+            <p class="dim mb-2">10 deliverables. 3 tiers. Pick what fits. No hidden fees.</p>
+            
+            <div class="matrix">
+                <div class="matrix-header">
+                    <div class="matrix-cell matrix-feature-header">DELIVERABLE</div>
+                    <div class="matrix-cell matrix-tier-header">$297<br><span class="small">Essential</span></div>
+                    <div class="matrix-cell matrix-tier-header tier-featured">$497<br><span class="small">Standard</span></div>
+                    <div class="matrix-cell matrix-tier-header">$697<br><span class="small">Premium</span></div>
+                </div>
+                
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🔍 GBP Health Check + Audit</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📝 Keyword-Rich Description</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📸 Custom Photos</div>
+                    <div class="matrix-cell matrix-check">10</div>
+                    <div class="matrix-cell matrix-check tier-featured">15</div>
+                    <div class="matrix-cell matrix-check">20</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">❓ Q&A Seeding</div>
+                    <div class="matrix-cell matrix-check">5 Qs</div>
+                    <div class="matrix-cell matrix-check tier-featured">10 Qs</div>
+                    <div class="matrix-cell matrix-check">15 Qs</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">⭐ Review Generation System</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📅 30-Day Posts Calendar</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🎯 Competitor Gap Analysis</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">Basic</div>
+                    <div class="matrix-cell matrix-check">Deep-dive</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🛡️ AI-Visibility Insurance</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">Advanced</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📊 Analytics Dashboard</div>
+                    <div class="matrix-cell matrix-check">30-day</div>
+                    <div class="matrix-cell matrix-check tier-featured">60-day</div>
+                    <div class="matrix-cell matrix-check">90-day</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🎓 Client Education Session</div>
+                    <div class="matrix-cell matrix-check">30 min</div>
+                    <div class="matrix-cell matrix-check tier-featured">45 min</div>
+                    <div class="matrix-cell matrix-check">60 min</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🎥 Video Intro for GBP</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🌐 Website GBP Integration</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🔄 Quarterly Re-optimization</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">☕ Spellbinder Coffee Sample</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+            </div>
+            
+            <div class="matrix-footer">
+                <div class="matrix-summary">
+                    <div><span class="mono accent-green">$297</span> <span class="dim">— Get found</span></div>
+                    <div><span class="mono" style="color: var(--accent-pink)">$497</span> <span class="dim">— Get chosen ★ Most Popular</span></div>
+                    <div><span class="mono accent-green">$697</span> <span class="dim">— Dominate</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING CARDS -->
+        <section>
+            <h2><span class="accent-green">04</span> CHOOSE YOUR TIER</h2>
+            <p class="dim mb-2">Flat rate. No hidden fees. No monthly lock-in unless you want it.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="mono">ESSENTIAL</h3>
+                    <div class="price">$297</div>
+                    <p class="price-note">one-time</p>
+                    <div class="pricing-meta">
+                        <span class="meta-tag">6 core deliverables</span>
+                        <span class="meta-tag">30-day report</span>
+                        <span class="meta-tag">30-min education</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Solo practitioners, home-based businesses, just getting started.</p>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="featured-tag">MOST POPULAR</div>
+                    <h3 class="mono" style="color: var(--accent-pink)">STANDARD</h3>
+                    <div class="price" style="color: var(--accent-pink)">$497</div>
+                    <p class="price-note">one-time</p>
+                    <div class="pricing-meta">
+                        <span class="meta-tag pink">9 deliverables</span>
+                        <span class="meta-tag pink">60-day support</span>
+                        <span class="meta-tag pink">AI-Insurance</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Small retail, restaurants, service businesses — the full foundation.</p>
+                    <a href="#contact" class="btn btn-pink">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="mono">PREMIUM</h3>
+                    <div class="price">$697</div>
+                    <p class="price-note">one-time</p>
+                    <div class="pricing-meta">
+                        <span class="meta-tag">12 deliverables</span>
+                        <span class="meta-tag">90-day support</span>
+                        <span class="meta-tag">Video intro</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Multi-location, competitive markets, businesses ready to dominate.</p>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+            
+            <div class="panel text-center mt-2">
+                <p class="mono" style="font-size: 1.1rem;">💡 NOT SURE WHICH TIER? <span class="dim">Book the 15-min diagnostic — we'll tell you exactly what you need.</span></p>
+            </div>
+        </section>
+
+        <!-- WHO THIS IS NOT FOR -->
+        <section>
+            <h2><span class="accent-pink">✗</span> NOT FOR</h2>
+            <div class="not-for">
+                <ul>
+                    <li><strong>Enterprise chains with 50+ locations</strong> — you need custom infrastructure, not a starter package</li>
+                    <li><strong>Businesses with full marketing teams</strong> — if you already have an SEO specialist, you don't need us</li>
+                    <li><strong>People looking for "viral" shortcuts</strong> — we optimize for long-term visibility, not overnight hacks</li>
+                    <li><strong>Anyone who won't respond to client requests</strong> — we need access to your GBP, photos, and business info. No ghosting.</li>
+                </ul>
+                <p class="mt-2"><strong class="accent-green">This IS for:</strong> Solo practitioners, local retailers, service businesses, restaurants, and anyone who knows they're invisible online but doesn't know how to fix it.</p>
+            </div>
+        </section>
+
+        <!-- XIST ECOSYSTEM PERKS -->
+        <section>
+            <h2><span class="accent-green">05</span> XIST ECOSYSTEM PERKS</h2>
+            <p class="dim mb-2">Every Velocity client receives:</p>
+            <div class="perks-grid">
+                <div class="perk">
+                    <div class="perk-icon">☕</div>
+                    <h3 class="mono">SPELLBINDER</h3>
+                    <p class="small dim">2oz sample of our "Focus" roast — startup fuel while we handle your visibility</p>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">📺</div>
+                    <h3 class="mono">XIST TV</h3>
+                    <p class="small dim">Exclusive behind-the-scenes on how we built your campaign</p>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">💰</div>
+                    <h3 class="mono">REFERRAL</h3>
+                    <p class="small dim">$50 off your next service for every business you refer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUARANTEE -->
+        <section>
+            <h2><span class="accent-green">06</span> GUARANTEE</h2>
+            <div class="panel panel-bright text-center">
+                <p class="mono" style="font-size: 1.2rem;">30 DAYS. MEASURABLE RESULTS OR WE RE-OPTIMIZE FREE.</p>
+                <p class="dim mt-2">No weasel words. If your GBP isn't measurably better after 30 days, we work until it is. At no extra cost.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section id="contact">
+            <h2><span class="accent-green">07</span> START NOW</h2>
+            <p class="dim mb-2">15-minute diagnostic. We'll audit your GBP live and tell you exactly what's broken. No pitch.</p>
+            
+            <div class="panel">
+                <form action="mailto:hello@xistdesign.co" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Business Name</label>
+                        <input type="text" name="business" placeholder="Your business" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="you@business.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="3" placeholder="What do you need help with?"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%">Send Diagnostic Request</button>
+                </form>
+                <p class="text-center small dim mt-2">Or email directly: <a href="mailto:hello@xistdesign.co" class="accent-green">hello@xistdesign.co</a></p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="terminal-line">Xist Design Co. — Erie, PA<span class="blink">_</span></p>
+            <p class="terminal-line dim">Built with 💀⚡ — Not generated by AI slop</p>
+            <p class="small dim mt-2">© 2026 Xist Design Co. All rights reserved.</p>
+        </footer>
     </div>
-
-    <section class="deliverables">
-        <h2>What You Get — 10 Deliverables</h2>
-        
-        <div class="phase">
-            <h3>🔍 Phase 1: Audit & Discovery (Days 1–2)</h3>
-            <ul>
-                <li><strong>GBP Health Check</strong> — Complete audit with red/yellow/green scoring + competitor analysis</li>
-                <li><strong>Keyword & Search Intent Map</strong> — Top 20 searches your customers actually type, including voice search</li>
-            </ul>
-        </div>
-
-        <div class="phase">
-            <h3>⚙️ Phase 2: Optimization & Build (Days 3–5)</h3>
-            <ul>
-                <li><strong>Full GBP Optimization</strong> — NAP accuracy, categories, description, hours, services, Q&A pre-populated</li>
-                <li><strong>Visual Asset Package</strong> — Logo, cover photo, 10–15 professional photos, optional video intro</li>
-                <li><strong>Review Generation System</strong> — Email/SMS templates, QR codes for in-store, response playbook</li>
-            </ul>
-        </div>
-
-        <div class="phase">
-            <h3>🚀 Phase 3: Activation & Handoff (Days 6–7)</h3>
-            <ul>
-                <li><strong>30-Day Google Posts Calendar</strong> — Pre-written posts + image templates + publishing schedule</li>
-                <li><strong>Citation Audit & Cleanup</strong> — Fix NAP inconsistencies across 20+ directories</li>
-                <li><strong>AI-Search Insurance</strong> — Structured data markup, FAQ schema, ChatGPT/Siri visibility check</li>
-                <li><strong>Analytics Dashboard</strong> — Baseline capture + 90-day tracking sheet</li>
-                <li><strong>Client Education Session</strong> — 30-min call: how to maintain everything yourself</li>
-            </ul>
-        </div>
-    </section>
-
-    <div class="guarantee">
-        <h3>✅ 30-Day Satisfaction Guarantee</h3>
-        <p>If you don't see measurable improvement in views, clicks, or calls within 30 days — we'll re-optimize for free or refund 100%.</p>
-    </div>
-
-    <section class="deliverables">
-        <h2 style="text-align: center;">Pricing</h2>
-        <div class="pricing">
-            <div class="price-card">
-                <div class="tier">Essential</div>
-                <div class="price">$297</div>
-                <p style="color: #666; margin-bottom: 1rem;">Best for solo practitioners, home-based</p>
-                <ul>
-                    <li>GBP setup + optimization</li>
-                    <li>5 professional photos</li>
-                    <li>Review templates + QR</li>
-                    <li>Basic audit report</li>
-                    <li>Email support</li>
-                </ul>
-            </div>
-            <div class="price-card featured">
-                <div class="badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">MOST POPULAR</div>
-                <div class="tier">Standard</div>
-                <div class="price">$397</div>
-                <p style="color: #666; margin-bottom: 1rem;">Best for small retail, restaurants, services</p>
-                <ul>
-                    <li>Everything in Essential</li>
-                    <li>15 photos + branded cover</li>
-                    <li>30-day posts calendar</li>
-                    <li>Citation cleanup (20+ dirs)</li>
-                    <li>AI-Search scorecard</li>
-                    <li>30-min education call</li>
-                </ul>
-            </div>
-            <div class="price-card">
-                <div class="tier">Premium</div>
-                <div class="price">$497</div>
-                <p style="color: #666; margin-bottom: 1rem;">Best for multi-location, competitive markets</p>
-                <ul>
-                    <li>Everything in Standard</li>
-                    <li>Video intro (60 sec)</li>
-                    <li>Advanced schema markup</li>
-                    <li>Competitor deep-dive</li>
-                    <li>60-min strategy call</li>
-                    <li>Priority support</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="deliverables">
-        <h2>Monthly Management (Optional)</h2>
-        <p style="margin-bottom: 1rem;">Don't want to maintain it yourself? We handle everything:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
-                <strong>$97/mo</strong><br>
-                Posts, reviews, updates, monthly reporting
-            </div>
-            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
-                <strong>$197/mo</strong><br>
-                + Ongoing SEO + content creation
-            </div>
-            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
-                <strong>$297/mo</strong><br>
-                + Google Ads management + tracking
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<section class="cta">
-    <h2>Ready to Get Found?</h2>
-    <p>Book a free 15-minute discovery call. We'll audit your current Google profile live on the call — no obligation.</p>
-    <a href="#contact">Book Free Discovery Call</a>
-    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Or text/call: [your phone] · Email: [your email]</p>
-</section>
-
-<footer id="contact">
-    <p><strong>Xist Design Co.</strong> — Digital Longevity for Local Businesses</p>
-    <p style="margin-top: 0.5rem;">Built with 💀⚡ by Xist Design Co. · Erie, PA</p>
-    <p style="margin-top: 0.5rem; opacity: 0.6;">© 2026 Xist Design Co. All rights reserved.</p>
-</footer>
-
 </body>
 </html>
