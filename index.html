@@ -381,11 +381,147 @@
         .mt-2 { margin-top: 2rem; }
         .small { font-size: 0.85rem; }
 
+        /* DELIVERABLES MATRIX */
+        .matrix {
+            border: var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .matrix-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            background: var(--bg-secondary);
+            border-bottom: var(--border);
+        }
+
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #222;
+        }
+
+        .matrix-row:last-child { border-bottom: none; }
+
+        .matrix-cell {
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .matrix-feature {
+            justify-content: flex-start;
+            text-align: left;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        .matrix-feature-header {
+            justify-content: flex-start;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .matrix-tier-header {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            border-left: var(--border);
+        }
+
+        .matrix-tier-header .small {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .matrix-check {
+            color: var(--accent-green);
+            font-weight: 700;
+            border-left: var(--border);
+            font-family: var(--font-mono);
+        }
+
+        .matrix-x {
+            color: #333;
+            border-left: var(--border);
+            font-family: var(--font-mono);
+        }
+
+        .tier-featured {
+            background: rgba(255, 0, 170, 0.05);
+            border-left: 1px solid var(--accent-pink);
+            border-right: 1px solid var(--accent-pink);
+        }
+
+        .matrix-row.matrix-highlight {
+            background: rgba(0, 255, 136, 0.03);
+        }
+
+        .matrix-footer {
+            background: var(--bg-secondary);
+            border: var(--border);
+            border-top: none;
+            padding: 1rem 1.5rem;
+        }
+
+        .matrix-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .matrix-summary div {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        /* PRICING META TAGS */
+        .pricing-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .meta-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border: var(--border);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-tag.pink {
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
         /* MOBILE */
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             .container { padding: 1rem; }
             .stats, .pricing-grid { grid-template-columns: 1fr; }
+            .matrix-header, .matrix-row { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+            .matrix-cell { padding: 0.5rem 0.4rem; font-size: 0.75rem; }
+            .matrix-feature { font-size: 0.7rem; }
+            .matrix-summary { grid-template-columns: 1fr; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -433,34 +569,130 @@
             <p class="text-center small dim">Source: Google / BrightLocal 2024</p>
         </section>
 
-        <!-- WHAT YOU GET -->
+        <!-- DELIVERABLES AT A GLANCE -->
         <section>
-            <h2><span class="accent-green">03</span> WHAT YOU GET</h2>
-            <div class="panel">
-                <p class="mono accent-green mb-2">10 DELIVERABLES. 3 PHASES. 7 DAYS.</p>
-                <p>Complete Google Business Profile optimization that turns your invisible listing into a 24/7 lead generation machine.</p>
-                <p class="mt-2 dim">Profile audit → Category optimization → Keyword-rich description → Photo audit + upload → Business attributes → Q&A seeding → Review generation system → Google Posts setup → Insights dashboard walkthrough → 30-day performance report</p>
+            <h2><span class="accent-green">03</span> WHAT YOU GET — AT A GLANCE</h2>
+            <p class="dim mb-2">10 deliverables. 3 tiers. Pick what fits. No hidden fees.</p>
+            
+            <div class="matrix">
+                <div class="matrix-header">
+                    <div class="matrix-cell matrix-feature-header">DELIVERABLE</div>
+                    <div class="matrix-cell matrix-tier-header">$297<br><span class="small">Essential</span></div>
+                    <div class="matrix-cell matrix-tier-header tier-featured">$497<br><span class="small">Standard</span></div>
+                    <div class="matrix-cell matrix-tier-header">$697<br><span class="small">Premium</span></div>
+                </div>
+                
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🔍 GBP Health Check + Audit</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📝 Keyword-Rich Description</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📸 Custom Photos</div>
+                    <div class="matrix-cell matrix-check">10</div>
+                    <div class="matrix-cell matrix-check tier-featured">15</div>
+                    <div class="matrix-cell matrix-check">20</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">❓ Q&A Seeding</div>
+                    <div class="matrix-cell matrix-check">5 Qs</div>
+                    <div class="matrix-cell matrix-check tier-featured">10 Qs</div>
+                    <div class="matrix-cell matrix-check">15 Qs</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">⭐ Review Generation System</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📅 30-Day Posts Calendar</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🎯 Competitor Gap Analysis</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">Basic</div>
+                    <div class="matrix-cell matrix-check">Deep-dive</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🛡️ AI-Visibility Insurance</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">Advanced</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">📊 Analytics Dashboard</div>
+                    <div class="matrix-cell matrix-check">30-day</div>
+                    <div class="matrix-cell matrix-check tier-featured">60-day</div>
+                    <div class="matrix-cell matrix-check">90-day</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell matrix-feature">🎓 Client Education Session</div>
+                    <div class="matrix-cell matrix-check">30 min</div>
+                    <div class="matrix-cell matrix-check tier-featured">45 min</div>
+                    <div class="matrix-cell matrix-check">60 min</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🎥 Video Intro for GBP</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🌐 Website GBP Integration</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">🔄 Quarterly Re-optimization</div>
+                    <div class="matrix-cell matrix-x">—</div>
+                    <div class="matrix-cell matrix-x tier-featured">—</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+                <div class="matrix-row matrix-highlight">
+                    <div class="matrix-cell matrix-feature">☕ Spellbinder Coffee Sample</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                    <div class="matrix-cell matrix-check tier-featured">✓</div>
+                    <div class="matrix-cell matrix-check">✓</div>
+                </div>
+            </div>
+            
+            <div class="matrix-footer">
+                <div class="matrix-summary">
+                    <div><span class="mono accent-green">$297</span> <span class="dim">— Get found</span></div>
+                    <div><span class="mono" style="color: var(--accent-pink)">$497</span> <span class="dim">— Get chosen ★ Most Popular</span></div>
+                    <div><span class="mono accent-green">$697</span> <span class="dim">— Dominate</span></div>
+                </div>
             </div>
         </section>
 
-        <!-- PRICING -->
+        <!-- PRICING CARDS -->
         <section>
-            <h2><span class="accent-green">04</span> INVESTMENT</h2>
-            <p class="dim mb-2">Compare: DIY cost (tools + learning curve) = $1,250+. Our package = flat rate. One new customer pays for it.</p>
+            <h2><span class="accent-green">04</span> CHOOSE YOUR TIER</h2>
+            <p class="dim mb-2">Flat rate. No hidden fees. No monthly lock-in unless you want it.</p>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3 class="mono">ESSENTIAL</h3>
                     <div class="price">$297</div>
                     <p class="price-note">one-time</p>
-                    <ul>
-                        <li>GBP audit + optimization</li>
-                        <li>Keyword-rich description</li>
-                        <li>10 custom photos</li>
-                        <li>Q&A seeding (5 questions)</li>
-                        <li>Review request system</li>
-                        <li>30-day performance report</li>
-                    </ul>
+                    <div class="pricing-meta">
+                        <span class="meta-tag">6 core deliverables</span>
+                        <span class="meta-tag">30-day report</span>
+                        <span class="meta-tag">30-min education</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Solo practitioners, home-based businesses, just getting started.</p>
                     <a href="#contact" class="btn">Get Started</a>
                 </div>
                 
@@ -469,14 +701,12 @@
                     <h3 class="mono" style="color: var(--accent-pink)">STANDARD</h3>
                     <div class="price" style="color: var(--accent-pink)">$497</div>
                     <p class="price-note">one-time</p>
-                    <ul>
-                        <li><strong>Everything in Essential</strong></li>
-                        <li>15 custom photos + Posts calendar</li>
-                        <li>Competitor gap analysis</li>
-                        <li>Local keyword research</li>
-                        <li>AI-Visibility Insurance (FAQ schema)</li>
-                        <li>60-day support</li>
-                    </ul>
+                    <div class="pricing-meta">
+                        <span class="meta-tag pink">9 deliverables</span>
+                        <span class="meta-tag pink">60-day support</span>
+                        <span class="meta-tag pink">AI-Insurance</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Small retail, restaurants, service businesses — the full foundation.</p>
                     <a href="#contact" class="btn btn-pink">Get Started</a>
                 </div>
                 
@@ -484,16 +714,18 @@
                     <h3 class="mono">PREMIUM</h3>
                     <div class="price">$697</div>
                     <p class="price-note">one-time</p>
-                    <ul>
-                        <li><strong>Everything in Standard</strong></li>
-                        <li>Video intro for GBP</li>
-                        <li>Deep-dive competitor analysis</li>
-                        <li>Website GBP integration</li>
-                        <li>90-day support + strategy call</li>
-                        <li>Quarterly re-optimization</li>
-                    </ul>
+                    <div class="pricing-meta">
+                        <span class="meta-tag">12 deliverables</span>
+                        <span class="meta-tag">90-day support</span>
+                        <span class="meta-tag">Video intro</span>
+                    </div>
+                    <p class="small dim mt-2">Best for: Multi-location, competitive markets, businesses ready to dominate.</p>
                     <a href="#contact" class="btn">Get Started</a>
                 </div>
+            </div>
+            
+            <div class="panel text-center mt-2">
+                <p class="mono" style="font-size: 1.1rem;">💡 NOT SURE WHICH TIER? <span class="dim">Book the 15-min diagnostic — we'll tell you exactly what you need.</span></p>
             </div>
         </section>
 
